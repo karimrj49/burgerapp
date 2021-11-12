@@ -17,36 +17,63 @@ class Recentorders extends StatelessWidget {
             color: Colors.grey,
           )),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15.0),
-            child: Image(
-              height: 100.0,
-              width: 100.0,
-              image: AssetImage(order.food.imageUrl),
-              fit: BoxFit.cover,
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                order.food.name,
-                style: const TextStyle(
-                    fontSize: 18.0, fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Image(
+                  height: 100.0,
+                  width: 100.0,
+                  image: AssetImage(order.food.imageUrl),
+                  fit: BoxFit.cover,
+                ),
               ),
-              Text(
-                order.restaurant.name,
-                style: const TextStyle(
-                    fontSize: 16.0, fontWeight: FontWeight.w600),
+              Container(
+                margin: const EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      order.food.name,
+                      style: const TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      order.restaurant.name,
+                      style: const TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      order.date,
+                      style: const TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                order.date,
-                style: const TextStyle(
-                    fontSize: 16.0, fontWeight: FontWeight.w600),
-              )
             ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 20.0),
+            width: 48.0,
+            decoration: BoxDecoration(
+                color: Colors.deepOrangeAccent,
+                borderRadius: BorderRadius.circular(30.0)),
+            child: IconButton(
+              icon: const Icon(Icons.add),
+              iconSize: 30.0,
+              color: Colors.white,
+              onPressed: () {},
+            ),
           )
         ],
       ),
